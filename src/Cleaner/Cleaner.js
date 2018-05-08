@@ -28,4 +28,12 @@ export default class Cleaner {
     })
   }
 
+  filmCleaner = () => {
+    const cleanFilms = films.results.map(film => {
+      return {
+        [film.title]: film.opening_crawl
+      }
+    })
+    //  console.log( cleanFilms )
+  }
 }
