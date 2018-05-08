@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { filmCrawl } from '../../ApiCalls/FilmApi';
+import { starWarsData } from '../../Api/Api';
+import ButtonContainer from '../../Stateless/ButttonContainer/ButtonContainer'
 
 class App extends Component {
 constructor() {
@@ -11,19 +12,25 @@ constructor() {
     vehicles : [],
     planets: []
   }
-
 }
 
+// handleInput( category ){
+//   const data = await starWarsData( category );
+//   const cleanData = await cleanData( data )
+//   this.setState( cleanData )
+// }
+
 async componentDidMount() {
-  await filmCrawl()
-  console.log( await filmCrawl())
+  const apiCall = await starWarsData( 'films')
+  console.log( apiCall )
 }
 
   render() {
 
     return (
       <div className="App">
-        {/* <Header className="App-header" /> */}
+        <header> swapi-box</header>
+        <ButtonContainer />
         {/* <CardContainer /> */}
         
       </div>
