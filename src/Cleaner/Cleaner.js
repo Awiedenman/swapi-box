@@ -36,4 +36,20 @@ export default class Cleaner {
     })
     //  console.log( cleanFilms )
   }
+
+  planetCleaner = () => {
+    const cleanPlanet = planets.results.map(planet => {
+      return {
+        [planet.name]: {
+          Name: planet.name,
+          Terrain: planet.terrain,
+          Population: planet.population,
+          Climate: planet.climate,
+          Residents: planet.residents
+        }
+      }
+    })
+    // console.log(cleanPlanet)
+  }
 }
+
