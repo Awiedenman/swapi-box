@@ -10,9 +10,32 @@ constructor() {
     film : [],
     people : [],
     vehicles : [],
-    planets: []
+    planets: [],
+    favorites: []
   }
 }
+
+// const renderLoader() {
+    //if(!films.length){
+    //render loader
+// } else {
+//   return filmText
+// }
+
+// render CardContainer = () => {
+// }
+
+// const renderContinueButton() {
+//   if( !this.state.people.length &&
+//       !this.state.vehicles.length &&
+//       !this.state.planets.length ) {
+//         render( 
+              // <button 
+                  // name='Continue'/>
+                  // onClick= { renderCardContainer }
+              // )
+//       }
+// }
 
 // handleInput( category ){
 //   const data = await starWarsData( category );
@@ -21,12 +44,14 @@ constructor() {
 // }
 
 async componentDidMount() {
-  const apiCall = await starWarsData( 'films')
+  const apiCall = await starWarsData( 'films' )
   console.log( apiCall )
 }
 
   render() {
-
+// {this.renderLoader}
+// {this.renderButton}
+  //}
     return (
       <div className="App">
         <header> swapi-box</header>
