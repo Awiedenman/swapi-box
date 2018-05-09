@@ -1,24 +1,27 @@
+import { homeworldNameData, homeworldPopulationData, personSpeciesData } from '../ApiCalls/ApiCalls'
 
-const cleaner = ( response, category ) => {
+const cleaner = ( data, category ) => {
   switch (category ) {
   
     case 'people':
 
-      const cleanPeople = response.results.map(person => {
+      const cleanPeople = data.results.map( async person => {
+        console.log(person)
         return {
           [person.name]: {
-            'Homeworld': "https://swapi.co/api/planets/1/",
-            'Species': "https://swapi.co/api/species/1/",
-            'Population of Homeworld': person.homeworld.polpulation
+            'Homeworld': await homeworldNameData( person.homeworld ),
+            'Population of Homeworld': await homeworldPopulationData( person.homeworld ),
+            'Species': await personSpeciesData( person.species )
           }
         }
       })
-      // Promise.all( [ homeWorldCall, speciesCall ] )
-        return cleanPeople;
+      // console.log(Promise.all(cleanPeople))
+      return Promise.all(cleanPeople)
+        
 
     case 'vehicle':
 
-      const cleanVehicles = response.results.map(vehicle => {
+      const cleanVehicles = data.results.map(vehicle => {
         return {
           [vehicle.name]: {
             'name': vehicle.name,
@@ -32,7 +35,7 @@ const cleaner = ( response, category ) => {
 
     case 'films':
 
-      const cleanFilms = response.results.map( film => {
+      const cleanFilms = data.results.map( film => {
         return {
           title: film.title, 
           Crawl: film.opening_crawl,
@@ -44,7 +47,7 @@ const cleaner = ( response, category ) => {
 
     case 'planet':
 
-      const cleanPlanet = response.results.map( planet => {
+      const cleanPlanet = data.results.map( planet => {
         return {
           [ planet.name ]: {
             Name: planet.name,
