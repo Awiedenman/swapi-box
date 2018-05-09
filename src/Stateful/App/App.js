@@ -44,10 +44,16 @@ constructor() {
 // }
 
 async componentDidMount() {
-  const apiCall = await starWarsData( 'films' )
-  const peopleData = await starWarsData('people')
-  await this.setState({ people: peopleData }) 
-  console.log(peopleData)
+  const filmDataCall = await starWarsData( 'films' )
+    await this.setState({ film: filmDataCall})
+  const peopleDataCall = await starWarsData('people')
+    await this.setState({ people: peopleDataCall })
+  const planetDataCall = await starWarsData( 'planets' )
+    await this.setState({ planets: planetDataCall })
+  const vehiclesDataCall = await starWarsData( 'vehicles' )
+    await this.setState({ vehicles: vehiclesDataCall })
+
+  // console.log(peopleDataCall)
 
   // console.log(peopleData)
   // console.log( apiCall )

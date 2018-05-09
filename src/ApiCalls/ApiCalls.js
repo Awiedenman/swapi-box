@@ -25,3 +25,5 @@ export const personSpeciesData = async ( url ) => {
   const data = await response.json()
   return data.name
 }
+
+// export const 
