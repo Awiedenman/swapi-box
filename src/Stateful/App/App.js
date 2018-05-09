@@ -45,7 +45,12 @@ constructor() {
 
 async componentDidMount() {
   const apiCall = await starWarsData( 'films' )
-  console.log( apiCall )
+  const peopleData = await starWarsData('people')
+  await this.setState({ people: peopleData }) 
+  console.log(peopleData)
+
+  // console.log(peopleData)
+  // console.log( apiCall )
 }
 
   render() {
