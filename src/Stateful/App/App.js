@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { starWarsData } from '../../Api/Api';
+import { starWarsData } from '../../ApiCalls/ApiCalls';
 import ButtonContainer from '../../Stateless/ButttonContainer/ButtonContainer'
 
 class App extends Component {

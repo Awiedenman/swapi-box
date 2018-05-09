@@ -1,20 +1,19 @@
 
 const cleaner = ( response, category ) => {
-  switch ( category ) {
+  switch (category ) {
   
     case 'people':
 
-      const cleanPeople = response.results.reduce(( personObj, person ) => {
-        if (!personObj[person.name]) {
-          personObj[person.name] = {
-            'Homeworld': person.homeworld,
-            'Species': person.species,
+      const cleanPeople = response.results.map(person => {
+        return {
+          [person.name]: {
+            'Homeworld': "https://swapi.co/api/planets/1/",
+            'Species': "https://swapi.co/api/species/1/",
             'Population of Homeworld': person.homeworld.polpulation
           }
         }
-        return personObj;
-      }, {})
-      // console.log( cleanPeople )
+      })
+      // Promise.all( [ homeWorldCall, speciesCall ] )
         return cleanPeople;
 
     case 'vehicle':
@@ -35,7 +34,9 @@ const cleaner = ( response, category ) => {
 
       const cleanFilms = response.results.map( film => {
         return {
-          [film.title]: film.opening_crawl
+          title: film.title, 
+          Crawl: film.opening_crawl,
+          releaseDate: film.release_date
         }
       })
       return cleanFilms;
