@@ -1,4 +1,4 @@
-import { homeworldNameData, homeworldPopulationData, personSpeciesData } from '../ApiCalls/ApiCalls'
+import { homeworldNameData, homeworldPopulationData, personSpeciesData, planetResidents } from '../ApiCalls/ApiCalls'
 
 const cleaner = ( data, category ) => {
   switch (category ) {
@@ -47,20 +47,28 @@ const cleaner = ( data, category ) => {
 
     case 'planets':
 
-      const cleanPlanet = data.results.map( planet => {
-        console.log(data);
+      const cleanPlanet = data.results.map( async planet => {
         
-        return {
-          [ planet.name ]: {
-            Name: planet.name,
-            Terrain: planet.terrain,
-            Population: planet.population,
-            Climate: planet.climate,
-            // Residents: planet.residents
-          }
-        }
+        const residents = planet.residents.map( async resident => {
+          return planetResidents( resident )
+        })
+        
+        const stuff = await Promise.all(residents)
+
+            return {
+              [ planet.name ]: {
+                Name: planet.name,
+                Terrain: planet.terrain,
+                Population: planet.population,
+                Climate: planet.climate,
+                Residents: stuff
+              }
+            } 
+        // });
+      
       })
-    return cleanPlanet
+      
+      return Promise.all(cleanPlanet)
     default: return 'howdy';
   }
 }

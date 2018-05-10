@@ -1,4 +1,4 @@
-import cleaner from '../cleaner/cleaner'
+import cleaner from '../cleaner/Cleaner'
 
 export const starWarsData = async ( category ) => {
   const url = `https://swapi.co/api/${ category }/`
@@ -26,4 +26,9 @@ export const personSpeciesData = async ( url ) => {
   return data.name
 }
 
-// export const 
+export const planetResidents = async ( url ) => {
+  const response = await fetch( url )
+  const data = await response.json()
+  
+  return data.name
+}
