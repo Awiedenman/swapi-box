@@ -1,12 +1,17 @@
 import cleaner from '../cleaner/Cleaner'
 
 export const starWarsData = async ( category ) => {
-  console.log( category )
-  const url = `https://swapi.co/api/${ category }/`
-  // const randomNumber = Math.floor(( Math.random() * 6) + 1 )
-  const response = await fetch( url )
-  const data = await response.json()
-  return cleaner( data, category )
+  try{
+    // console.log( category )
+    const url = `https://swapi.co/api/${ category }/`
+    // const randomNumber = Math.floor(( Math.random() * 6) + 1 )
+    console.log(url)
+    const response = await fetch( url )
+    const data = await response.json()
+    return cleaner( data, category )
+  } catch( error) {
+    throw error
+  }
 }
 
 export const homeworldNameData = async ( url ) => {
