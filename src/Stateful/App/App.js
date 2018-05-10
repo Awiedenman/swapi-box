@@ -65,7 +65,7 @@ async componentDidMount() {
   //}
     return (
       <div className="App">
-        <header> swapi-box</header>
+        <header className='title'> swapi-box</header>
         <ButtonContainer />
         {/* <CardContainer /> */}
         
