@@ -55,16 +55,15 @@ const cleaner = ( data, category ) => {
         
         const stuff = await Promise.all(residents)
 
-            return {
-              [ planet.name ]: {
-                Name: planet.name,
-                Terrain: planet.terrain,
-                Population: planet.population,
-                Climate: planet.climate,
-                Residents: stuff
-              }
-            } 
-        // });
+        return {
+          [ planet.name ]: {
+            Name: planet.name,
+            Terrain: planet.terrain,
+            Population: planet.population,
+            Climate: planet.climate,
+            Residents: stuff
+          }
+        } 
       
       })
       
