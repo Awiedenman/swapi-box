@@ -1,6 +1,7 @@
 import cleaner from '../cleaner/Cleaner'
 
 export const starWarsData = async ( category ) => {
+  console.log( category )
   const url = `https://swapi.co/api/${ category }/`
   // const randomNumber = Math.floor(( Math.random() * 6) + 1 )
   const response = await fetch( url )

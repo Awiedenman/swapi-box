@@ -2,12 +2,20 @@ import React from 'react';
 import './ButtonContainer.css'
 import Button from '../Button/Button'
 
-const ButtonContainer = ( props ) => {
+const ButtonContainer = ( { setData } ) => {
+  // console.log( props )
+
    return (
      <div>
-       < Button name="People" />
-       < Button name="Vehicle" />
-       < Button name="Planets" />
+       < Button 
+          setData={ setData }
+          name='people' />
+       < Button 
+          name='vehicles'
+          setData = { setData } />
+       < Button 
+          name='planets' 
+          setData = { setData }/>
      </div>
    )
 }

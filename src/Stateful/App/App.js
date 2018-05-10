@@ -43,21 +43,28 @@ constructor() {
 //   this.setState( cleanData )
 // }
 
-async componentDidMount() {
-  const filmDataCall = await starWarsData( 'films' )
-    await this.setState({ film: filmDataCall})
-  const peopleDataCall = await starWarsData('people')
-    await this.setState({ people: peopleDataCall })
-  const planetDataCall = await starWarsData( 'planets' )
-    await this.setState({ planets: planetDataCall })
-  const vehiclesDataCall = await starWarsData( 'vehicles' )
-    await this.setState({ vehicles: vehiclesDataCall })
-
+  async componentDidMount() {
+    const filmDataCall = await starWarsData( 'films' )
+      await this.setState({ film: filmDataCall})
+    // const peopleDataCall = await starWarsData('people')
+    //   await this.setState({ people: peopleDataCall })
+    // const planetDataCall = await starWarsData( 'planets' )
+    //   await this.setState({ planets: planetDataCall })
+    // const vehiclesDataCall = await starWarsData( 'vehicles' )
+    //   await this.setState({ vehicles: vehiclesDataCall})
+  }
   // console.log(peopleDataCall)
+
+  setData = async( { name } ) => {
+    console.log(name)
+    const dataCall = await starWarsData( name )
+    await this.setState({ [ name ]: dataCall })
+
+  }
 
   // console.log(peopleData)
   // console.log( apiCall )
-}
+
 
   render() {
 // {this.renderLoader}
@@ -65,8 +72,9 @@ async componentDidMount() {
   //}
     return (
       <div className="App">
-        <header className='title'> swapi-box</header>
-        <ButtonContainer />
+        <header> swapi-box</header>
+        <ButtonContainer 
+            setData={ this.setData }/>
         {/* <CardContainer /> */}
         
       </div>
