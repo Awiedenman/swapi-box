@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import { starWarsData } from '../../ApiCalls/ApiCalls';
-import ButtonContainer from '../../Stateless/ButttonContainer/ButtonContainer'
+import ButtonContainer from '../../Stateless/ButttonContainer/ButtonContainer';
+import OpeningScroll from '../../Stateless/OpeningScroll/OpeningScroll';
+import CardContainer from '../../Stateless/CardContainer/CardContainer';
 
 class App extends Component {
 constructor() {
   super();
   this.state = {
+    onLandingPage : true,
     film : [],
     people : [],
     vehicles : [],
@@ -44,22 +47,18 @@ constructor() {
 // }
 
   async componentDidMount() {
+    const randomNumber = Math.floor((Math.random() * 7))
     const filmDataCall = await starWarsData( 'films' )
-      await this.setState({ film: filmDataCall})
-    // const peopleDataCall = await starWarsData('people')
-    //   await this.setState({ people: peopleDataCall })
-    // const planetDataCall = await starWarsData( 'planets' )
-    //   await this.setState({ planets: planetDataCall })
-    // const vehiclesDataCall = await starWarsData( 'vehicles' )
-    //   await this.setState({ vehicles: vehiclesDataCall})
+      await this.setState({ film: filmDataCall[ randomNumber ]})
+   
   }
   // console.log(peopleDataCall)
 
   setData = async( { name } ) => {
-    console.log(name)
+    this.setState({ onLandingPage: false })
+    // console.log(name)
     const dataCall = await starWarsData( name )
     await this.setState({ [ name ]: dataCall })
-
   }
 
   // console.log(peopleData)
@@ -70,16 +69,25 @@ constructor() {
 // {this.renderLoader}
 // {this.renderButton}
   //}
-    return (
-      <div className="App">
-        <header> swapi-box</header>
-        <ButtonContainer 
-            setData={ this.setData }/>
-        {/* <CardContainer /> */}
-        
-      </div>
-    );
+    
+        const onLandingPage = this.state.onLandingPage;
+        return(
+          <div className="App">
+          
+          <ButtonContainer 
+              setData={ this.setData }/> 
+         { onLandingPage ? (
+          <OpeningScroll 
+              randomScroll={ this.state.film }/>
+         ) : ( 
+           <CardContainer />
+         )}
+          </div>
+
+        )
+      }
+    
   }
-}
+
 
 export default App;

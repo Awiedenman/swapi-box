@@ -7,16 +7,15 @@
   height: 80px;
 }
 
-.App-header {
+/* .App-header {
+  position: fixed;
   background-color: #222;
-  height: 150px;
+  height: 250px;
   padding: 20px;
   color: white;
-}
+} */
 
-.title {
-  font-size: 120px;
-}
+
 
 .App-intro {
   font-size: large;

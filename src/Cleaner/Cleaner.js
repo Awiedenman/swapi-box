@@ -17,7 +17,6 @@ const cleaner = ( data, category ) => {
       })
       // console.log(Promise.all(cleanPeople))
       return Promise.all(cleanPeople)
-        
 
     case 'vehicles':
 
@@ -38,7 +37,7 @@ const cleaner = ( data, category ) => {
       const cleanFilms = data.results.map( film => {
         return {
           title: film.title, 
-          Crawl: film.opening_crawl,
+          crawl: film.opening_crawl,
           releaseDate: film.release_date
         }
       })
