@@ -1,11 +1,22 @@
 import React from 'react';
+import Card from '../Card/Card';
+import './CardContainer.css'
 
-const CardContainer = (props) => {
+const CardContainer = ({ categoryData }) => {
+// console.log(categoryData)
+  const renderCards = categoryData.map(( card, index) => 
+    // console.log(data.populationOfHomeworld)
+        <Card 
+          key={ index }
+          card={ card } 
+        />
+  )
 
   return(
-<div>
-  <h1>Cards go here!</h1>
-</div>
+    <div className='card-container'>
+
+      { renderCards }
+    </div>
   )
 }
 
