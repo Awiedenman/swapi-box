@@ -5,7 +5,7 @@
 .button {
   width: 100px;
   height: 30px;
-  margin: 90px;
+  margin: 0 22px;
   background-color: rgb(25, 26, 26);
   color:rgb(180, 187, 84);
   border: 3px rgb(180, 187, 84) inset;

@@ -6,7 +6,8 @@ const ButtonContainer = ( { setData } ) => {
   // console.log( props )
 
    return (
-     <div>
+     <div className="button-container">
+     < h1 className='title'> swapi-box </h1>
        < Button 
           setData={ setData }
           name='people' />
@@ -15,7 +16,7 @@ const ButtonContainer = ( { setData } ) => {
           setData = { setData } />
        < Button 
           name='planets' 
-          setData = { setData }/>
+          setData = { setData } />
      </div>
    )
 }

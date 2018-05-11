@@ -1,0 +1,16 @@
+.button-container {
+  position: absolute;
+  top: 0;
+  background-color: black;
+  border-bottom: yellow 2px solid;
+  height: 200px;
+  width: 100%;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.title {
+  color: #ffff00;
+  margin: 5px 0 10px;
+  font-size: 100px;
+}
