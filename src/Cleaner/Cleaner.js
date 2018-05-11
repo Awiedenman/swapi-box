@@ -10,9 +10,9 @@ const cleaner = ( data, category ) => {
         return {
             name: `name: ${ person.name }`,
             data: {
-              homeworld: `Homeworld: ${ await homeworldNameData(person.homeworld) }`,
+                homeworld: `Homeworld: ${ await homeworldNameData(person.homeworld) }`,
                 populationOfHomeworld: `Population: ${ await homeworldPopulationData(person.homeworld) }`,
-                species: await personSpeciesData(person.species)
+                species: `Species: ${ await personSpeciesData(person.species) }`
             }
             
         }
@@ -24,10 +24,12 @@ const cleaner = ( data, category ) => {
 
       const cleanVehicles = data.results.map(vehicle => {
         return {
-            'name': vehicle.name,
-            'Model': vehicle.model,
-            'Class': vehicle.class,
-            'Number of passengers': vehicle.passengers
+            name: `Name ${ vehicle.name }`,
+            data: {
+                model: `Model: ${ vehicle.model }`,
+                class: `Class: ${ vehicle.class }`,
+                NumberOfPassengers: `Passengers: ${ vehicle.passengers }`
+            }
         }
       })
       return cleanVehicles;
