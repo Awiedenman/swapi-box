@@ -2,7 +2,8 @@ import React from 'react';
 import './Card.css'
 
 const Card = ( { card } ) => {
-  // console.log(data)
+  // debugger;
+  console.log(card)
   const dynamicCards = Object.keys(card.data).map(( value, index) => 
       <p key={index}> { card.data[value]} </p>
       )

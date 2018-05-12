@@ -8,7 +8,7 @@ const cleaner = ( data, category ) => {
       const cleanPeople = data.results.map( async person => {
         // console.log(person)
         return {
-            name: `name: ${ person.name }`,
+            name: `\${ person.name }`,
             data: {
                 homeworld: `Homeworld: ${ await homeworldNameData(person.homeworld) }`,
                 populationOfHomeworld: `Population: ${ await homeworldPopulationData(person.homeworld) }`,
@@ -24,7 +24,7 @@ const cleaner = ( data, category ) => {
 
       const cleanVehicles = data.results.map(vehicle => {
         return {
-            name: `Name ${ vehicle.name }`,
+            name: `${ vehicle.name }`,
             data: {
                 model: `Model: ${ vehicle.model }`,
                 class: `Class: ${ vehicle.class }`,
@@ -54,16 +54,17 @@ const cleaner = ( data, category ) => {
           return planetResidents( resident )
         })
         
-        const stuff = await Promise.all(residents)
+        const residentInfo = await Promise.all(residents)
 
         return {
-            Name: planet.name,
-            Terrain: planet.terrain,
-            Population: planet.population,
-            Climate: planet.climate,
-            Residents: stuff
+            name: `${ planet.name }`,
+            data: {
+              Terrain: `Terrain: ${ planet.terrain }`,
+              Population: `Population: ${ planet.population }`,
+              Climate: `Climate: ${ planet.climate }`,
+              Residents: `Residents: ${ residentInfo }`
+            }
         } 
-      
       })
       
       return Promise.all(cleanPlanet)

@@ -14,7 +14,6 @@ const CardContainer = ({ categoryData }) => {
 
   return(
     <div className='card-container'>
-
       { renderCards }
     </div>
   )

@@ -28,13 +28,25 @@ describe('ApiCalls', () => {
     }
 
     window.fetch = jest.fn().mockImplementation( () => Promise.resolve({
-      ok: true,
+      status: 200,
       json: () => Promise.resolve( mockData )
     }))
 
     starWarsData( 'people' )
 
     expect( window.fetch ).toHaveBeenCalledWith( mockUrl );
+  })
+
+  it('should throw an error  if the status is not ok', () => {
+    window.fetch = jest.fn().mockImplementation( () => Promise.resolve({
+      status: 500
+    }))
+
+    const result = starWarsData( 'people' )
+      // console.log(starWarsData('people'))
+    const expected = Error('500') 
+
+    expect( result ).rejects.toEqual( expected );
   })
 
   it('should throw an error if the response is bad', () => {
@@ -46,9 +58,6 @@ describe('ApiCalls', () => {
      }
       expect( starWarsData(' ')).rejects.toEqual( expected ) 
   })
-
-
-
 
 })
 
