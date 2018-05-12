@@ -7,9 +7,13 @@ export const starWarsData = async ( category ) => {
     // const randomNumber = Math.floor(( Math.random() * 7))
     // console.log(url)
     const response = await fetch( url )
-    const data = await response.json()
+    if (response.status === 200) {
+       const data = await response.json()
     return cleaner( data, category )
-  } catch( error) {
+    } else {
+      throw new Error( response.status );
+    }
+  } catch( error ) {
     throw error
   }
 }

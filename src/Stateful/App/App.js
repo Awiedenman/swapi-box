@@ -14,7 +14,8 @@ constructor() {
     people : [],
     vehicles : [],
     planets: [],
-    favorites: []
+    favorites: [],
+    category: ''
   }
 }
 
@@ -56,6 +57,7 @@ constructor() {
 
   setData = async( { name } ) => {
     this.setState({ onLandingPage: false })
+    this.setState({ category: name })
     // console.log(name)
     const dataCall = await starWarsData( name )
     await this.setState({ [ name ]: dataCall })
@@ -74,13 +76,17 @@ constructor() {
         return(
           <div className="App">
           
-          <ButtonContainer 
-              setData={ this.setData }/> 
+            <ButtonContainer 
+                setData={ this.setData }/> 
+
          { onLandingPage ? (
-          <OpeningScroll 
-              randomScroll={ this.state.film }/>
+            <OpeningScroll 
+                randomScroll={ this.state.film }/>
          ) : ( 
-           <CardContainer />
+            <CardContainer 
+              categoryData={ this.state[ this.state.category ] }
+              category={ this.state.category }
+            />
          )}
           </div>
 

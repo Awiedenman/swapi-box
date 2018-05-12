@@ -8,11 +8,13 @@ const cleaner = ( data, category ) => {
       const cleanPeople = data.results.map( async person => {
         // console.log(person)
         return {
-          [person.name]: {
-            'Homeworld': await homeworldNameData( person.homeworld ),
-            'Population of Homeworld': await homeworldPopulationData( person.homeworld ),
-            'Species': await personSpeciesData( person.species )
-          }
+            name: `\${ person.name }`,
+            data: {
+                homeworld: `Homeworld: ${ await homeworldNameData(person.homeworld) }`,
+                populationOfHomeworld: `Population: ${ await homeworldPopulationData(person.homeworld) }`,
+                species: `Species: ${ await personSpeciesData(person.species) }`
+            }
+            
         }
       })
       // console.log(Promise.all(cleanPeople))
@@ -22,12 +24,12 @@ const cleaner = ( data, category ) => {
 
       const cleanVehicles = data.results.map(vehicle => {
         return {
-          [vehicle.name]: {
-            'name': vehicle.name,
-            'Model': vehicle.model,
-            'Class': vehicle.class,
-            'Number of passengers': vehicle.passengers
-          }
+            name: `${ vehicle.name }`,
+            data: {
+                model: `Model: ${ vehicle.model }`,
+                class: `Class: ${ vehicle.class }`,
+                NumberOfPassengers: `Passengers: ${ vehicle.passengers }`
+            }
         }
       })
       return cleanVehicles;
@@ -52,18 +54,17 @@ const cleaner = ( data, category ) => {
           return planetResidents( resident )
         })
         
-        const stuff = await Promise.all(residents)
+        const residentInfo = await Promise.all(residents)
 
         return {
-          [ planet.name ]: {
-            Name: planet.name,
-            Terrain: planet.terrain,
-            Population: planet.population,
-            Climate: planet.climate,
-            Residents: stuff
-          }
+            name: `${ planet.name }`,
+            data: {
+              Terrain: `Terrain: ${ planet.terrain }`,
+              Population: `Population: ${ planet.population }`,
+              Climate: `Climate: ${ planet.climate }`,
+              Residents: `Residents: ${ residentInfo }`
+            }
         } 
-      
       })
       
       return Promise.all(cleanPlanet)
