@@ -20,3 +20,7 @@ const CardContainer = ({ categoryData }) => {
 }
 
 export default CardContainer;
+
+
+// mock its props
+//snapshot
