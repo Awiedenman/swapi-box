@@ -15,6 +15,7 @@ constructor() {
     vehicles : [],
     planets: [],
     favorites: [],
+    favCardClicked: false,
     category: ''
   }
 }
@@ -42,10 +43,26 @@ constructor() {
     this.setState({ onLandingPage: false, category: name, [ name ]: dataCall } )
   }
 
-  addFavotite = ( card ) => {
-    this.setState({ favorites: [ ...this.state.favorites, card ]})
+  addFavorite = ( card ) => {
+    let favorites = this.state.favorites;
+    if (favorites.includes( card )){
+      favorites = favorites.filter( fav => {
+        return !fav === card 
+      })
+    } else {
+        favorites.push( card )
+    }
+      favCardClicked: !this.state.favCardClicked
+      this.setState({ favorites: favorites })
   }
 
+  showFavorites =( name ) => {
+    console.log( name )
+    this.setState({ category: name })
+  }
+
+
+//if this.state 
 
 
   render() {
@@ -54,9 +71,12 @@ constructor() {
         const onLandingPage = this.state.onLandingPage;
         return(
           <div className="App">
-          
+
             <ButtonContainer 
-                setData={ this.setData }/> 
+                setData={ this.setData }
+                count={ this.state.favorites.length }
+                showFavorites={ this.showFavorites }
+            />   
 
          { onLandingPage ? (
             <OpeningScroll 
@@ -64,7 +84,8 @@ constructor() {
          ) : ( 
             <CardContainer 
               categoryData={ this.state[ this.state.category ] } 
-              addFavorite={ this.addFavotite }          
+              addFavorite={ this.addFavorite }  
+              favCardClicked={ this.state.favCardClicked }       
             />
          )}
           </div>
