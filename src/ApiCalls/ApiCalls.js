@@ -7,38 +7,69 @@ export const starWarsData = async ( category ) => {
     // const randomNumber = Math.floor(( Math.random() * 7))
     // console.log(url)
     const response = await fetch( url )
-    if (response.status === 200) {
-       const data = await response.json()
-    return cleaner( data, category )
+    if (response.status === 200){
+      const data = await response.json()
+      return await cleaner( data, category )
     } else {
       throw new Error( response.status );
     }
-  } catch( error ) {
+  } catch( error ){
     throw error
   }
 }
 
 export const homeworldNameData = async ( url ) => {
-  const response = await fetch( url )
-  const data = await response.json()
-  return data.name
+  try{
+    const response = await fetch( url )
+    if (response.status === 200){
+      const data = await response.json()
+      return data.name
+    } else {
+      throw new Error( response.status )
+    }
+  } catch ( error ){
+    throw error
+  }
 }
 
 export const homeworldPopulationData = async ( url ) => {
-  const response = await fetch( url )
-  const data = await response.json()
-  return data.population
-}
+  try{
+    const response = await fetch( url )
+    if ( response.status === 200 ){
+      const data = await response.json()
+      return data.population
+    } else {
+      throw new Error( response.status )
+    }
+  } catch ( error ){
+    throw error
+  }
+} 
 
 export const personSpeciesData = async ( url ) => {
-  const response = await fetch( url )
-  const data = await response.json()
-  return data.name
+  try{
+    const response = await fetch( url )
+    if ( response.status === 200 ){
+      const data = await response.json()
+      return data.name
+    } else {
+      throw new Error ( response.status )
+    }
+  } catch ( error ){
+    throw error
+  }
 }
 
 export const planetResidents = async ( url ) => {
-  const response = await fetch( url )
-  const data = await response.json()
-  
-  return data.name
+  try{
+    const response = await fetch( url )
+    if ( response.status === 200 ){
+      const data = await response.json()
+      return data.name
+    } else {
+      throw new Error(response.status);
+    }
+  } catch ( error ){
+    throw error
+  }
 }

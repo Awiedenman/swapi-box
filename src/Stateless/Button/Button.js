@@ -5,7 +5,7 @@ const Button = ( { name, setData } ) => {
   
   return (
     < div className = "button-div" >
-      <button className="button" onClick= { ( ) => setData( { name } )}>{ name } </button>
+      <button className="button" onClick= { () => setData(name)}>{ name } </button>
     </div>
   )
 }

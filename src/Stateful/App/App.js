@@ -55,12 +55,9 @@ constructor() {
   }
   // console.log(peopleDataCall)
 
-  setData = async( { name } ) => {
-    this.setState({ onLandingPage: false })
-    this.setState({ category: name })
-    // console.log(name)
+  setData = async name => {
     const dataCall = await starWarsData( name )
-    await this.setState({ [ name ]: dataCall })
+    this.setState({ onLandingPage: false, category: name, [ name ]: dataCall } )
   }
 
   // console.log(peopleData)
@@ -97,3 +94,6 @@ constructor() {
 
 
 export default App;
+
+
+// mock starWarsData and see if it is getting me the state i need
