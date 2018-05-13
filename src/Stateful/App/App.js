@@ -29,24 +29,6 @@ constructor() {
 // render CardContainer = () => {
 // }
 
-// const renderContinueButton() {
-//   if( !this.state.people.length &&
-//       !this.state.vehicles.length &&
-//       !this.state.planets.length ) {
-//         render( 
-              // <button 
-                  // name='Continue'/>
-                  // onClick= { renderCardContainer }
-              // )
-//       }
-// }
-
-// handleInput( category ){
-//   const data = await starWarsData( category );
-//   const cleanData = await cleanData( data )
-//   this.setState( cleanData )
-// }
-
   async componentDidMount() {
     const randomNumber = Math.floor((Math.random() * 7))
     const filmDataCall = await starWarsData( 'films' )
@@ -60,15 +42,15 @@ constructor() {
     this.setState({ onLandingPage: false, category: name, [ name ]: dataCall } )
   }
 
-  // console.log(peopleData)
-  // console.log( apiCall )
+  addFavotite = ( card ) => {
+    this.setState({ favorites: [ ...this.state.favorites, card ]})
+  }
+
 
 
   render() {
 // {this.renderLoader}
 // {this.renderButton}
-  //}
-    
         const onLandingPage = this.state.onLandingPage;
         return(
           <div className="App">
@@ -81,13 +63,13 @@ constructor() {
                 randomScroll={ this.state.film }/>
          ) : ( 
             <CardContainer 
-              categoryData={ this.state[ this.state.category ] }            />
+              categoryData={ this.state[ this.state.category ] } 
+              addFavorite={ this.addFavotite }          
+            />
          )}
           </div>
-
         )
-      }
-    
+    }
   }
 
 
