@@ -9,7 +9,7 @@ export const starWarsData = async ( category ) => {
     const response = await fetch( url )
     if (response.status === 200){
       const data = await response.json()
-      return cleaner( data, category )
+      return await cleaner( data, category )
     } else {
       throw new Error( response.status );
     }
@@ -38,6 +38,8 @@ export const homeworldPopulationData = async ( url ) => {
     if ( response.status === 200 ){
       const data = await response.json()
       return data.population
+    } else {
+      throw new Error( response.status )
     }
   } catch ( error ){
     throw error
@@ -50,7 +52,9 @@ export const personSpeciesData = async ( url ) => {
     if ( response.status === 200 ){
       const data = await response.json()
       return data.name
-    } 
+    } else {
+      throw new Error ( response.status )
+    }
   } catch ( error ){
     throw error
   }
@@ -59,10 +63,12 @@ export const personSpeciesData = async ( url ) => {
 export const planetResidents = async ( url ) => {
   try{
     const response = await fetch( url )
-    if ( response.data === 200 ){
+    if ( response.status === 200 ){
       const data = await response.json()
       return data.name
-    } 
+    } else {
+      throw new Error(response.status);
+    }
   } catch ( error ){
     throw error
   }

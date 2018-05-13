@@ -1,6 +1,6 @@
 import { shallow, mount } from 'enzyme';
 // import ApiCalls from './ApiCalls'
-import { starWarsData, homeworldNameData, homeworldPopulationData } from './ApiCalls'
+import { starWarsData, homeworldNameData, homeworldPopulationData, personSpeciesData } from './ApiCalls'
 
 describe('ApiCalls', () => {
  
@@ -24,10 +24,7 @@ describe('ApiCalls', () => {
                 homeworld: "https://swapi.co/api/planets/1/",
                 films: [
                     "https://swapi.co/api/films/2/",
-                    "https://swapi.co/api/films/6/",
-                    "https://swapi.co/api/films/3/",
-                    "https://swapi.co/api/films/1/",
-                    "https://swapi.co/api/films/7/"
+                    
                 ],
                 species: [
                     "https://swapi.co/api/species/1/"
@@ -62,7 +59,6 @@ describe('ApiCalls', () => {
       }))
 
       const result = starWarsData( 'people' )
-        // console.log(starWarsData('people'))
       const expected = Error('500') 
 
       expect( result ).rejects.toEqual( expected );
@@ -98,25 +94,16 @@ describe('ApiCalls', () => {
           "https://swapi.co/api/people/1/",
           "https://swapi.co/api/people/2/",
           "https://swapi.co/api/people/4/",
-          "https://swapi.co/api/people/6/",
-          "https://swapi.co/api/people/7/",
-          "https://swapi.co/api/people/8/",
-          "https://swapi.co/api/people/9/",
-          "https://swapi.co/api/people/11/",
-          "https://swapi.co/api/people/43/",
-          "https://swapi.co/api/people/62/"
         ],
         films: [
           "https://swapi.co/api/films/5/",
           "https://swapi.co/api/films/4/",
-          "https://swapi.co/api/films/6/",
-          "https://swapi.co/api/films/3/",
-          "https://swapi.co/api/films/1/"
         ],
         created: "2014-12-09T13:50:49.641000Z",
         edited: "2014-12-21T20:48:04.175778Z",
         url: "https://swapi.co/api/planets/1/"
       }
+
       window.fetch = jest.fn().mockImplementation( () => Promise.resolve({
         status: 200,
         json: () => Promise.resolve( mockData)
@@ -167,21 +154,11 @@ describe('ApiCalls', () => {
         residents: [
           "https://swapi.co/api/people/1/",
           "https://swapi.co/api/people/2/",
-          "https://swapi.co/api/people/4/",
-          "https://swapi.co/api/people/6/",
-          "https://swapi.co/api/people/7/",
-          "https://swapi.co/api/people/8/",
-          "https://swapi.co/api/people/9/",
-          "https://swapi.co/api/people/11/",
-          "https://swapi.co/api/people/43/",
-          "https://swapi.co/api/people/62/"
+          "https://swapi.co/api/people/4/"
         ],
         films: [
           "https://swapi.co/api/films/5/",
           "https://swapi.co/api/films/4/",
-          "https://swapi.co/api/films/6/",
-          "https://swapi.co/api/films/3/",
-          "https://swapi.co/api/films/1/"
         ],
         created: "2014-12-09T13:50:49.641000Z",
         edited: "2014-12-21T20:48:04.175778Z",
@@ -197,7 +174,7 @@ describe('ApiCalls', () => {
       expect(window.fetch).toHaveBeenCalledWith(mockUrl)
     })
 
-    it('should throw and error if the status is not ok', () => {
+    it('should throw an error if the status is not ok', () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 500
       }))
@@ -215,11 +192,78 @@ describe('ApiCalls', () => {
       const expected = {
         'status': 404
       }
-      expect(homeworldPopulationData(' ')).rejects.toEqual(expected)
+
+      expect(homeworldPopulationData(' ')).rejects.toEqual( expected );
+    })
+  })
+  
+  describe( 'personSpeciesData', () => {
+    it('should call fetch with the correct the params', () => {
+      const mockUrl = 'https://swapi.co/api/species/1/'
+      const mockData = {
+
+        name: "Human",
+        classification: "mammal",
+        designation: "sentient",
+        average_height: "180",
+        skin_colors: "caucasian, black, asian, hispanic",
+        hair_colors: "blonde, brown, black, red",
+        eye_colors: "brown, blue, green, hazel, grey, amber",
+        average_lifespan: "120",
+        homeworld: "https://swapi.co/api/planets/9/",
+        language: "Galactic Basic",
+        people: [
+          "https://swapi.co/api/people/1/",
+          "https://swapi.co/api/people/4/",
+        ],
+        films: [
+          "https://swapi.co/api/films/2/",
+          "https://swapi.co/api/films/7/"
+        ],
+        created: "2014-12-10T13:52:11.567000Z",
+        edited: "2015-04-17T06:59:55.850671Z",
+        url: "https://swapi.co/api/species/1/"
+
+      }
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(mockData)
+      }))
+
+      homeworldPopulationData('https://swapi.co/api/species/1/')
+
+      expect(window.fetch).toHaveBeenCalledWith(mockUrl)
+    })
+
+    it('should throw an error if the status does not come back ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 500
+      }))
+
+      const result = personSpeciesData('https://swapi.co/api/species/1/')
+      const expected = Error('500')
+
+      expect(result).rejects.toEqual(expected)
+
+    })
+    
+  })
+    it('should throw an error if the fetch response fails', () => {
+      window.fetch = jest.fn().mockImplementation( () => Promise.reject({
+        'status': 404
+      }))
+      const expected = {
+        'status': 404
+      }
+      
+      expect(personSpeciesData(' ')).rejects.toEqual( expected );
     })
 })
 
-})
+
+  
+
+
 
 
 

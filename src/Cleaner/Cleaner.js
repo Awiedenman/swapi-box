@@ -6,9 +6,8 @@ const cleaner = ( data, category ) => {
     case 'people':
 
       const cleanPeople = data.results.map( async person => {
-        // console.log(person)
         return {
-            name: `\${ person.name }`,
+            name: `${ person.name }`,
             data: {
                 homeworld: `Homeworld: ${ await homeworldNameData(person.homeworld) }`,
                 populationOfHomeworld: `Population: ${ await homeworldPopulationData(person.homeworld) }`,
@@ -17,7 +16,6 @@ const cleaner = ( data, category ) => {
             
         }
       })
-      // console.log(Promise.all(cleanPeople))
       return Promise.all(cleanPeople)
 
     case 'vehicles':
@@ -49,13 +47,14 @@ const cleaner = ( data, category ) => {
     case 'planets':
 
       const cleanPlanet = data.results.map( async planet => {
-        
-        const residents = planet.residents.map( async resident => {
+        const residents = planet.residents.map( resident => {
           return planetResidents( resident )
         })
         
-        const residentInfo = await Promise.all(residents)
-
+        let residentInfo = await Promise.all(residents)
+        if (!residentInfo.length) {
+          residentInfo = 'N/A';
+        }
         return {
             name: `${ planet.name }`,
             data: {
@@ -68,6 +67,7 @@ const cleaner = ( data, category ) => {
       })
       
       return Promise.all(cleanPlanet)
+
     default: return 'howdy';
   }
 }

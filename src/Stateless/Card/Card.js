@@ -3,7 +3,7 @@ import './Card.css'
 
 const Card = ( { card } ) => {
   // debugger;
-  console.log(card)
+  // console.log(card)
   const dynamicCards = Object.keys(card.data).map(( value, index) => 
       <p key={index}> { card.data[value]} </p>
       )
