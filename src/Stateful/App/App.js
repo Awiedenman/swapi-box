@@ -15,6 +15,7 @@ constructor() {
     vehicles : [],
     planets: [],
     favorites: [],
+    favCardClicked: false,
     category: ''
   }
 }
@@ -29,67 +30,63 @@ constructor() {
 // render CardContainer = () => {
 // }
 
-// const renderContinueButton() {
-//   if( !this.state.people.length &&
-//       !this.state.vehicles.length &&
-//       !this.state.planets.length ) {
-//         render( 
-              // <button 
-                  // name='Continue'/>
-                  // onClick= { renderCardContainer }
-              // )
-//       }
-// }
-
-// handleInput( category ){
-//   const data = await starWarsData( category );
-//   const cleanData = await cleanData( data )
-//   this.setState( cleanData )
-// }
-
   async componentDidMount() {
     const randomNumber = Math.floor((Math.random() * 7))
     const filmDataCall = await starWarsData( 'films' )
       await this.setState({ film: filmDataCall[ randomNumber ]})
    
   }
-  // console.log(peopleDataCall)
 
   setData = async name => {
     const dataCall = await starWarsData( name )
     this.setState({ onLandingPage: false, category: name, [ name ]: dataCall } )
   }
 
-  // console.log(peopleData)
-  // console.log( apiCall )
+  addFavorite = ( card ) => {
+    let favorites = this.state.favorites;
+    if (favorites.includes( card )){
+      favorites = favorites.filter( fav => {
+        return !fav === card 
+      })
+    } else {
+        favorites.push( card )
+    }
+      card.favCardClicked = !card.favCardClicked
+      this.setState({ favorites })
+  }
+
+  showFavorites =( name ) => {
+    console.log( name )
+    this.setState({ category: name })
+  }
 
 
   render() {
 // {this.renderLoader}
 // {this.renderButton}
-  //}
-    
         const onLandingPage = this.state.onLandingPage;
         return(
           <div className="App">
-          
+
             <ButtonContainer 
-                setData={ this.setData }/> 
+              setData={ this.setData }
+              count={ this.state.favorites.length }
+              showFavorites={ this.showFavorites }
+          />   
 
          { onLandingPage ? (
             <OpeningScroll 
-                randomScroll={ this.state.film }/>
+              randomScroll={ this.state.film }/>
          ) : ( 
             <CardContainer 
-              categoryData={ this.state[ this.state.category ] }
-              category={ this.state.category }
+              categoryData={ this.state[ this.state.category ] } 
+              addFavorite={ this.addFavorite }  
+              favCardClicked={ this.state.favCardClicked }       
             />
          )}
           </div>
-
         )
-      }
-    
+    }
   }
 
 

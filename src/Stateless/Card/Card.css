@@ -9,8 +9,22 @@
   border: 1px #ffff00 inset;
 }
 
+.card selected {
+  height: 300px;
+  width: 200px;
+  background-color: #81d8be;
+  margin: 15px 20px;
+  text-align: left;
+  padding: 20px;
+  border: 1px #ffff00 inset;
+}
+
 h1 { 
   font-size: 30px;
   /* background-color: aqua
   border-bottom: 1px #ffff00 inset; */
+}
+
+.fav-star:hover {
+  color: blue;
 }

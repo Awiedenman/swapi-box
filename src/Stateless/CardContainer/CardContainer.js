@@ -1,15 +1,18 @@
 import React from 'react';
 import Card from '../Card/Card';
 import './CardContainer.css'
+import PropTypes from 'prop-types';
 
-const CardContainer = ({ categoryData }) => {
-// console.log(categoryData)
+const CardContainer = ({ categoryData, addFavorite, favCardClicked }) => {
+let selectedClass = favCardClicked === true ? 'card selected' : 'card'
   const renderCards = categoryData.map(( card, index) => 
-    // console.log(data.populationOfHomeworld)
-        <Card 
-          key={ index }
-          card={ card } 
-        />
+    <Card 
+    selectedClass={ selectedClass }
+    key={ index }
+    card={ card } 
+    addFavorite={ addFavorite }
+    favCardClicked={ favCardClicked }
+    />
   )
 
   return(
@@ -19,8 +22,12 @@ const CardContainer = ({ categoryData }) => {
   )
 }
 
+
+
+CardContainer.propTypes = {
+  categoryData: PropTypes.array.isRequired,
+  addFavorite: PropTypes.func.isRequired,
+  favCardClicked: PropTypes.bool.isRequired 
+}
+
 export default CardContainer;
-
-
-// mock its props
-//snapshot

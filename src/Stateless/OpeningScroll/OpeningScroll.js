@@ -1,21 +1,25 @@
 import React from 'react';
 import './OpeningScroll.css';
+import PropTypes from 'prop-types';
 
-
-const OpeningScroll = ( props ) => {
-  console.log(props)
+const OpeningScroll = ( {randomScroll} ) => {
+console.log(randomScroll)
    return (
     <div className ="fade">
       <section className="star-wars">
         <div className="crawl">
-            {/* <h1> ...a long time ago in a galaxy far far away</h1> */}
-            <h1 className = "title" > {props.randomScroll.title} </h1>
-            <p>{ props.randomScroll.crawl }</p>
-            <h2>{ props.randomScroll.releaseDate } </h2>
+            <h1 className = "title" > { randomScroll.title} </h1>
+            <p>{ randomScroll.crawl }</p>
+            <h2>{ randomScroll.releaseDate } </h2>
         </div>
       </section>
     </div>
    )
+}
+
+
+OpeningScroll.propTypes ={
+  randomScroll: PropTypes.oneOfType([ PropTypes.array, PropTypes.object ])
 }
 
 export default OpeningScroll;
