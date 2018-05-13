@@ -13,4 +13,9 @@ const Favorites = ( { count, showFavorites } ) => {
   )
 }
 
+Favorites.propTypes = {
+  count: PropTypes.number.isRequired,
+  showFavorites: PropTypes.func.isRequired,
+}
+
 export default Favorites;

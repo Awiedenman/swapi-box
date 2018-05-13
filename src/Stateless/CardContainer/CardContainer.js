@@ -4,10 +4,8 @@ import './CardContainer.css'
 import PropTypes from 'prop-types';
 
 const CardContainer = ({ categoryData, addFavorite, favCardClicked }) => {
-// console.log(categoryData)
 let selectedClass = favCardClicked === true ? 'card selected' : 'card'
   const renderCards = categoryData.map(( card, index) => 
-    // console.log(data.populationOfHomeworld)
     <Card 
     selectedClass={ selectedClass }
     key={ index }
@@ -24,10 +22,12 @@ let selectedClass = favCardClicked === true ? 'card selected' : 'card'
   )
 }
 
-export default CardContainer;
 
 
 CardContainer.propTypes = {
-  categoryData: PropTypes.array.isRequired
+  categoryData: PropTypes.array.isRequired,
+  addFavorite: PropTypes.func.isRequired,
+  favCardClicked: PropTypes.bool.isRequired 
 }
 
+export default CardContainer;

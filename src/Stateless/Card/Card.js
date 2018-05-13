@@ -13,16 +13,17 @@ const Card = ( { card, addFavorite, favCardClicked, selectedClass } ) => {
 
   return (
     <div className={ selectedClass }>
-
-    < div className="fav-star" onClick={ () => addFavorite( card )}> ⭐️ </div>
-    <h1> { card.name } </h1>
-         { dynamicCards }
+      < div className = "fav-star"
+        onClick = { () => addFavorite(card) }> 
+        < span role="img" aria-label="favorite button"> ⭐️ </span> 
+      </div >
+      <h1> { card.name } </h1>
+          { dynamicCards }
     </div>
   )
 
 }
 
-export default Card;
 
 
 Card.propTypes = {
@@ -31,3 +32,5 @@ Card.propTypes = {
   favCardClicked: PropTypes.bool.isRequired,
   selectedClass: PropTypes.string.isRequired
 }
+
+export default Card;

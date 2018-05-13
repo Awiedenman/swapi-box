@@ -36,7 +36,6 @@ constructor() {
       await this.setState({ film: filmDataCall[ randomNumber ]})
    
   }
-  // console.log(peopleDataCall)
 
   setData = async name => {
     const dataCall = await starWarsData( name )
@@ -52,17 +51,14 @@ constructor() {
     } else {
         favorites.push( card )
     }
-      favCardClicked: !this.state.favCardClicked
-      this.setState({ favorites: favorites })
+      card.favCardClicked = !card.favCardClicked
+      this.setState({ favorites })
   }
 
   showFavorites =( name ) => {
     console.log( name )
     this.setState({ category: name })
   }
-
-
-//if this.state 
 
 
   render() {
@@ -73,14 +69,14 @@ constructor() {
           <div className="App">
 
             <ButtonContainer 
-                setData={ this.setData }
-                count={ this.state.favorites.length }
-                showFavorites={ this.showFavorites }
-            />   
+              setData={ this.setData }
+              count={ this.state.favorites.length }
+              showFavorites={ this.showFavorites }
+          />   
 
          { onLandingPage ? (
             <OpeningScroll 
-                randomScroll={ this.state.film }/>
+              randomScroll={ this.state.film }/>
          ) : ( 
             <CardContainer 
               categoryData={ this.state[ this.state.category ] } 

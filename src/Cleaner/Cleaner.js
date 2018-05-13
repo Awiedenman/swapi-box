@@ -9,6 +9,7 @@ const cleaner = ( data, category ) => {
         return {
             name: `${ person.name }`,
             data: {
+                favCardClicked: false,
                 homeworld: `Homeworld: ${ await homeworldNameData(person.homeworld) }`,
                 populationOfHomeworld: `Population: ${ await homeworldPopulationData(person.homeworld) }`,
                 species: `Species: ${ await personSpeciesData(person.species) }`
