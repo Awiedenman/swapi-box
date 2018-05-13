@@ -1,5 +1,4 @@
 import { shallow, mount } from 'enzyme';
-// import ApiCalls from './ApiCalls'
 import { starWarsData, homeworldNameData, homeworldPopulationData, personSpeciesData, planetResidents } from './ApiCalls'
 
 describe('ApiCalls', () => {
