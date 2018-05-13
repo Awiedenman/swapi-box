@@ -1,4 +1,3 @@
-import { shallow, mount } from 'enzyme';
 import { starWarsData, homeworldNameData, homeworldPopulationData, personSpeciesData, planetResidents } from './ApiCalls'
 
 describe('ApiCalls', () => {
