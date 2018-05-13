@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should match the snapshot of the button on page 1`] = `[Function]`;
