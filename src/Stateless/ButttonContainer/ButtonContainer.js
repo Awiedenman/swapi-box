@@ -1,9 +1,10 @@
 import React from 'react';
-import './ButtonContainer.css'
-import Button from '../Button/Button'
+import './ButtonContainer.css';
+import Button from '../Button/Button';
+import PropTypes from 'prop-types';
 
 const ButtonContainer = ( { setData } ) => {
-  // console.log( props )
+  console.log( setData )
 
    return (
      <div className="button-container">
@@ -19,6 +20,10 @@ const ButtonContainer = ( { setData } ) => {
           setData = { setData } />
      </div>
    )
+}
+
+ButtonContainer.propTypes = {
+  setData: PropTypes.func.isRequired
 }
 
 export default ButtonContainer;

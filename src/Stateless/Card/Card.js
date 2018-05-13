@@ -1,9 +1,10 @@
 import React from 'react';
 import './Card.css'
+import PropTypes from 'prop-types';
 
 const Card = ( { card } ) => {
   // debugger;
-  // console.log(card)
+  console.log(card)
   const dynamicCards = Object.keys(card.data).map(( value, index) => 
       <p key={index}> { card.data[value]} </p>
       )
@@ -20,4 +21,6 @@ const Card = ( { card } ) => {
 export default Card;
 
 
-// snapshot
+Card.protoTyoes = {
+  card: PropTypes.object.isRequired
+}

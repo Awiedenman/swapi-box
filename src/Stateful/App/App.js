@@ -81,9 +81,7 @@ constructor() {
                 randomScroll={ this.state.film }/>
          ) : ( 
             <CardContainer 
-              categoryData={ this.state[ this.state.category ] }
-              category={ this.state.category }
-            />
+              categoryData={ this.state[ this.state.category ] }            />
          )}
           </div>
 

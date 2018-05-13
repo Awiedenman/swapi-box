@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Card/Card';
 import './CardContainer.css'
+import PropTypes from 'prop-types';
 
 const CardContainer = ({ categoryData }) => {
 // console.log(categoryData)
@@ -22,5 +23,7 @@ const CardContainer = ({ categoryData }) => {
 export default CardContainer;
 
 
-// mock its props
-//snapshot
+CardContainer.propTypes = {
+  categoryData: PropTypes.array.isRequired
+}
+
