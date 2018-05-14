@@ -5,31 +5,30 @@ import Favorites from '../../Stateless/Favorites/Favorites';
 import PropTypes from 'prop-types';
 
 const ButtonContainer = ( { setData, count, showFavorites } ) => {
-  console.log( setData )
 
-   return (
-     <div className="button-container">
-     < h1 className='title'> swapi-box </h1>
+  return (
+    <div className="button-container">
+      < h1 className='title'> swapi-box </h1>
       < Favorites
-          count={ count }
-          showFavorites={ showFavorites }/>
-       < Button 
-          setData={ setData }
-          name='people' />
-       < Button 
-          name='vehicles'
-          setData = { setData } />
-       < Button 
-          name='planets' 
-          setData = { setData } />
-     </div>
-   )
-}
+        count={ count }
+        showFavorites={ showFavorites }/>
+      < Button 
+        setData={ setData }
+        name='people' />
+      < Button 
+        name='vehicles'
+        setData = { setData } />
+      < Button 
+        name='planets' 
+        setData = { setData } />
+    </div>
+  );
+};
 
 ButtonContainer.propTypes = {
-  setData: PropTypes.func.isRequired,
+  setData: PropTypes.func,
   count: PropTypes.number.isRequired,
   showFavorites: PropTypes.func.isRequired
-}
+};
 
 export default ButtonContainer;

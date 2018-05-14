@@ -1,20 +1,32 @@
 import React from 'react';
 import Card from './Card';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('Card', () => {
   let wrapper;
-  let card;
   beforeEach( () => {
-    card = {data: {location: 'sansabar'}}
-    wrapper = shallow ( 
-              < Card 
-                  card={ card }  
-              />
-            )
-  })
+    const mockCard ={
+      data: {
+        Climate: "Climate: frozen",
+        Population: "Population: unknown",
+        Residents: "Residents: N/A",
+        Terrain: "Terrain: tundra, ice caves, mountain ranges",
+        name: "Hoth"
+      }};
+
+    const mockAddFavoite = jest.fn();
+    const mockFavCardClicked = true;
+    wrapper = shallow( 
+      < Card 
+        card={ mockCard }
+        addFavorite = { mockAddFavoite }
+        favCardClicked = { mockFavCardClicked }
+  
+      />
+    );
+  });
 
   it('should match the snapshot when cards are rendered on the page', () => {
-    expect( Card ).toMatchSnapshot()
-  })
-})
+    expect( wrapper ).toMatchSnapshot();
+  });
+});
