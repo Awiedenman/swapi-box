@@ -11,7 +11,7 @@ describe.skip('App', () => {
     );
   });
 
-  it('should call starWarsData with the correct paramenters', () => {
+  it.skip('should call starWarsData with the correct paramenters', () => {
     const mockParams = 'vehicles';
 
     starWarsDAta('vehicles');

@@ -3,7 +3,6 @@ import './OpeningScroll.css';
 import PropTypes from 'prop-types';
 
 const OpeningScroll = ( {randomScroll} ) => {
-console.log(randomScroll)
    return (
     <div className ="fade">
       <section className="star-wars">

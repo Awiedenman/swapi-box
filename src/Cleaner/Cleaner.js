@@ -16,8 +16,7 @@ var cleaner = ( data, category ) => {
               `Population: ${ await homeworldPopulationData(person.homeworld) }`,
             species: 
               `Species: ${ await personSpeciesData(person.species) }`
-          }
-            
+          } 
         };
       });
       return Promise.all(cleanPeople);

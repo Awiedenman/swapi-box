@@ -45,7 +45,6 @@ constructor() {
   }
 
   showFavorites =( name ) => {
-    console.log( name )
     this.setState({ category: name })
   }
 

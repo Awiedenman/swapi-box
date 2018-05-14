@@ -2,10 +2,7 @@ import cleaner from '../cleaner/Cleaner';
 
 export const starWarsData = async ( category ) => {
   try {
-    // console.log( category )
     const url = `https://swapi.co/api/${ category }/`;
-    // const randomNumber = Math.floor(( Math.random() * 7))
-    // console.log(url)
     const response = await fetch( url );
     if (response.status === 200){
       const data = await response.json();
