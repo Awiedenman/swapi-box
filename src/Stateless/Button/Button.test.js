@@ -5,13 +5,11 @@ import { shallow, mount } from 'enzyme';
 
 describe('Button', () => {
   let wrapper;
-  // const mockSetData = jest.fn()
  
   beforeEach( () => {
     wrapper = shallow( 
           <Button
             name= {name}
-            // setData={ setData}
           />
            )
   })
