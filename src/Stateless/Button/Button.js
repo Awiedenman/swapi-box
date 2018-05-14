@@ -7,14 +7,16 @@ const Button = ( { name, setData } ) => {
   
   return (
     < div className = "button-div" >
-      <button className="button" onClick= { () => setData(name)}>{ name } </button>
+      <button 
+        className="button"
+        onClick= { () => setData(name)}>{ name } </button>
     </div>
-  )
-}
+  );
+};
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
-  setData: PropTypes.func.isRequired
-}
+  setData: PropTypes.func
+};
 
 export default Button;

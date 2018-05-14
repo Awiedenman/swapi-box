@@ -1,3 +1,439 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card should match the snapshot when cards are rendered on the page 1`] = `[Function]`;
+exports[`Card should match the snapshot when cards are rendered on the page 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    addFavorite={[Function]}
+    card={
+        Object {
+            "data": Object {
+              "Climate": "Climate: frozen",
+              "Population": "Population: unknown",
+              "Residents": "Residents: N/A",
+              "Terrain": "Terrain: tundra, ice caves, mountain ranges",
+              "name": "Hoth",
+            },
+          }
+    }
+    favCardClicked={true}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="fav-star"
+          onClick={[Function]}
+>
+          <span
+                    aria-label="favorite button"
+                    role="img"
+          >
+                     ⭐️ 
+          </span>
+</div>,
+        <h1>
+           
+           
+</h1>,
+        Array [
+          <p>
+            Climate: frozen
+            true
+             
+</p>,
+          <p>
+            Population: unknown
+            true
+             
+</p>,
+          <p>
+            Residents: N/A
+            true
+             
+</p>,
+          <p>
+            Terrain: tundra, ice caves, mountain ranges
+            true
+             
+</p>,
+          <p>
+            Hoth
+            true
+             
+</p>,
+        ],
+      ],
+      "className": undefined,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <span
+            aria-label="favorite button"
+            role="img"
+>
+             ⭐️ 
+</span>,
+          "className": "fav-star",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "aria-label": "favorite button",
+            "children": " ⭐️ ",
+            "role": "img",
+          },
+          "ref": null,
+          "rendered": " ⭐️ ",
+          "type": "span",
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            " ",
+            undefined,
+            " ",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          " ",
+          undefined,
+          " ",
+        ],
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Climate: frozen",
+            true,
+            " ",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Climate: frozen",
+          true,
+          " ",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Population: unknown",
+            true,
+            " ",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Population: unknown",
+          true,
+          " ",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Residents: N/A",
+            true,
+            " ",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Residents: N/A",
+          true,
+          " ",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": "3",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Terrain: tundra, ice caves, mountain ranges",
+            true,
+            " ",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Terrain: tundra, ice caves, mountain ranges",
+          true,
+          " ",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": "4",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Hoth",
+            true,
+            " ",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Hoth",
+          true,
+          " ",
+        ],
+        "type": "p",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="fav-star"
+            onClick={[Function]}
+>
+            <span
+                        aria-label="favorite button"
+                        role="img"
+            >
+                         ⭐️ 
+            </span>
+</div>,
+          <h1>
+             
+             
+</h1>,
+          Array [
+            <p>
+              Climate: frozen
+              true
+               
+</p>,
+            <p>
+              Population: unknown
+              true
+               
+</p>,
+            <p>
+              Residents: N/A
+              true
+               
+</p>,
+            <p>
+              Terrain: tundra, ice caves, mountain ranges
+              true
+               
+</p>,
+            <p>
+              Hoth
+              true
+               
+</p>,
+          ],
+        ],
+        "className": undefined,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <span
+              aria-label="favorite button"
+              role="img"
+>
+               ⭐️ 
+</span>,
+            "className": "fav-star",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "aria-label": "favorite button",
+              "children": " ⭐️ ",
+              "role": "img",
+            },
+            "ref": null,
+            "rendered": " ⭐️ ",
+            "type": "span",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              " ",
+              undefined,
+              " ",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            " ",
+            undefined,
+            " ",
+          ],
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Climate: frozen",
+              true,
+              " ",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Climate: frozen",
+            true,
+            " ",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Population: unknown",
+              true,
+              " ",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Population: unknown",
+            true,
+            " ",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Residents: N/A",
+              true,
+              " ",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Residents: N/A",
+            true,
+            " ",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": "3",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Terrain: tundra, ice caves, mountain ranges",
+              true,
+              " ",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Terrain: tundra, ice caves, mountain ranges",
+            true,
+            " ",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": "4",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Hoth",
+              true,
+              " ",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Hoth",
+            true,
+            " ",
+          ],
+          "type": "p",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

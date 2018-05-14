@@ -20,21 +20,10 @@ constructor() {
   }
 }
 
-// const renderLoader() {
-    //if(!films.length){
-    //render loader
-// } else {
-//   return filmText
-// }
-
-// render CardContainer = () => {
-// }
-
   async componentDidMount() {
     const randomNumber = Math.floor((Math.random() * 7))
     const filmDataCall = await starWarsData( 'films' )
       await this.setState({ film: filmDataCall[ randomNumber ]})
-   
   }
 
   setData = async name => {
@@ -60,10 +49,7 @@ constructor() {
     this.setState({ category: name })
   }
 
-
   render() {
-// {this.renderLoader}
-// {this.renderButton}
         const onLandingPage = this.state.onLandingPage;
         return(
           <div className="App">
@@ -72,7 +58,7 @@ constructor() {
               setData={ this.setData }
               count={ this.state.favorites.length }
               showFavorites={ this.showFavorites }
-          />   
+            />   
 
          { onLandingPage ? (
             <OpeningScroll 
