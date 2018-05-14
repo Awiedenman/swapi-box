@@ -1,18 +1,21 @@
 import { homeworldNameData, homeworldPopulationData, personSpeciesData, planetResidents } from '../ApiCalls/ApiCalls';
 
-const cleaner = ( data, category ) => {
+var cleaner = ( data, category ) => {
   switch (category ) {
   
     case 'people':
 
-      const cleanPeople = data.results.map( async person => {
+      var cleanPeople = data.results.map( async person => {
         return {
           name: `${ person.name }`,
           data: {
             favCardClicked: false,
-            homeworld: `Homeworld: ${ await homeworldNameData(person.homeworld) }`,
-            populationOfHomeworld: `Population: ${ await homeworldPopulationData(person.homeworld) }`,
-            species: `Species: ${ await personSpeciesData(person.species) }`
+            homeworld: 
+              `Homeworld: ${ await homeworldNameData(person.homeworld) }`,
+            populationOfHomeworld: 
+              `Population: ${ await homeworldPopulationData(person.homeworld) }`,
+            species: 
+              `Species: ${ await personSpeciesData(person.species) }`
           }
             
         };
@@ -21,7 +24,7 @@ const cleaner = ( data, category ) => {
 
     case 'vehicles':
 
-      const cleanVehicles = data.results.map(vehicle => {
+      var cleanVehicles = data.results.map(vehicle => {
         return {
           name: `${ vehicle.name }`,
           data: {
@@ -35,7 +38,7 @@ const cleaner = ( data, category ) => {
 
     case 'films':
 
-      const cleanFilms = data.results.map( film => {
+      var cleanFilms = data.results.map( film => {
         return {
           title: film.title, 
           crawl: film.opening_crawl,
@@ -47,8 +50,8 @@ const cleaner = ( data, category ) => {
 
     case 'planets':
 
-      const cleanPlanet = data.results.map( async planet => {
-        const residents = planet.residents.map( resident => {
+      var cleanPlanet = data.results.map( async planet => {
+        var residents = planet.residents.map( resident => {
           return planetResidents( resident );
         });
         
